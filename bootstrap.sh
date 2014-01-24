@@ -13,23 +13,23 @@ apt-get -y install cmake
 apt-get -y install vim
 apt-get -y install gdb
 apt-get -y install gitk
+apt-get -y install pkg-config
 
 # --MULTI-THREADING
 apt-get -y install libtbb-dev
 
-# --OPENGL
+# --IMAGES/VIDEO/GRAPHICS
 apt-get -y install freeglut3-dev
-
-# --VIDEO LIBRARIES
+apt-get -y install libgtk2.0-dev
+apt-get -y install libgtkglext1-dev
+apt-get -y install libgstreamer1.0-dev
 apt-get -y install ffmpeg
-
-# --IMAGE LIBRARIES
 apt-get -y install libtiff4-dev
 apt-get -y install libjpeg-turbo8
 apt-get -y install libjpeg8-dev
 apt-get -y install libjpeg-turbo8-dev
-apt-get -y  install libpng12-0
-apt-get -y  install libpng12-dev
+apt-get -y install libpng12-0
+apt-get -y install libpng12-dev
 
 # --LINEAR ALGEBRA for PTAM
 apt-get -y install liblapack3gf
