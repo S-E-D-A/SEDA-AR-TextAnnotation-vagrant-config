@@ -18,18 +18,30 @@ apt-get -y install pkg-config
 # --MULTI-THREADING
 apt-get -y install libtbb-dev
 
-# --IMAGES/VIDEO/GRAPHICS
+# --GRAPHICS LIBRARIES
 apt-get -y install freeglut3-dev
 apt-get -y install libgtk2.0-dev
 apt-get -y install libgtkglext1-dev
-apt-get -y install libgstreamer1.0-dev
+
+# --VIDEO LIBRARIES
+apt-get -y install x264
+apt-get -y install libv4l-dev
+apt-get -y install libavcodec-dev
+apt-get -y install libavformat-dev
+apt-get -y install libswscale-dev
+apt-get -y install libxine-dev
+apt-get -y install libgstreamer-plugins-base0.10-dev
+apt-get -y install libgstreamer0.10-dev
 apt-get -y install ffmpeg
+
+# --IMAGE LIBRARIES
 apt-get -y install libtiff4-dev
 apt-get -y install libjpeg-turbo8
 apt-get -y install libjpeg8-dev
 apt-get -y install libjpeg-turbo8-dev
 apt-get -y install libpng12-0
 apt-get -y install libpng12-dev
+apt-get -y install libjasper-dev
 
 # --LINEAR ALGEBRA for PTAM
 apt-get -y install liblapack3gf
