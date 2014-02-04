@@ -52,6 +52,9 @@ apt-get -y install libblas-dev
 # --ADD-ONS for PTAM
 apt-get -y install libreadline-dev
 
+# -- OpenCV-2.3
+apt-get -y install libopencv-dev
+
 # --TooN
 if [ ! -f /.tooninstalled ]; then
     echo "Provisioning TooN."
@@ -93,22 +96,6 @@ if [ ! -f /.gvarsinstalled ]; then
     touch /.gvarsinstalled
 else
     echo "GVars already installed."
-fi
-
-# --OpenCV
-if [ ! -f /.opencvinstalled ]; then
-	echo "Provisioning OpenCV."
-	git clone https://github.com/Itseez/opencv.git
-	cd opencv
-	mkdir build
-	cd build
-	cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON ..
-	make -j4
-	make install
-	cd ../../
-	touch /.opencvinstalled
-else
-	echo "OpenCV already installed."
 fi
 
 # Add sync folder
