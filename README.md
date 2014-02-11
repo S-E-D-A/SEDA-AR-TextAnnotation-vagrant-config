@@ -9,4 +9,6 @@ Basic Setup.
 
 3. %cd SEDA-AR-TextAnnotation-vagrant-config 
 
-4. %vagrant up (usually takes 10-20 min depending on internet connection) 
+4. %vagrant up (usually takes 10-20 min depending on internet connection)
+
+Windows users: You need a POSIX emulator, [Cygwin](http://www.cygwin.com/) is the most popular. Make sure VM support is enabled in the BIOS. Google for machine specific virtualization enable instructions.
