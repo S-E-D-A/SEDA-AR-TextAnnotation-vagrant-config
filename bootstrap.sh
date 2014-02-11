@@ -55,6 +55,9 @@ apt-get -y install libreadline-dev
 # -- OpenCV-2.3
 apt-get -y install libopencv-dev
 
+# -- Change user to vagrant
+su vagrant
+
 # --TooN
 if [ ! -f /.tooninstalled ]; then
     echo "Provisioning TooN."
@@ -62,7 +65,7 @@ if [ ! -f /.tooninstalled ]; then
     cd TooN
     ./configure
     make
-    make install
+    sudo make install
     cd ../
     touch /.tooninstalled
 else
@@ -77,7 +80,7 @@ if [ ! -f /.libcvdinstalled ]; then
     export CXXFLAGS=-D_REENTRANT
     ./configure --enable-gpl
     make -j4
-    make install
+    sudo make install
     cd ../
     touch /.libcvdinstalled
 else
@@ -91,16 +94,25 @@ if [ ! -f /.gvarsinstalled ]; then
     cd gvars
     ./configure
     make
-    make install
+    sudo make install
     cd ../
     touch /.gvarsinstalled
 else
     echo "GVars already installed."
 fi
 
+# --SEDA-AR Project Repo
+if [ ! -f /.projectrepocloned ]; then
+	echo "Cloning SEDA-AR-TextAnnotation."
+	git clone https://github.com/S-E-D-A/SEDA-AR-TextAnnotation.git
+	touch /.projectrepoinstalled
+else
+	echo "SEDA-AR-TextAnnotation already cloned."
+fi
+
 # Add sync folder
 mkdir -p "/vagrant/sync"
-chown -R vagrant:vagrant "/vagrant/sync/"
+sudo chown -R vagrant:vagrant "/vagrant/sync/"
 
 # Link sync directory into home
 if [[ ! -L "/home/vagrant/sync" ]]; then
@@ -108,5 +120,5 @@ if [[ ! -L "/home/vagrant/sync" ]]; then
 fi
 
 # Update ldconfig
-ldconfig
+sudo ldconfig
 
