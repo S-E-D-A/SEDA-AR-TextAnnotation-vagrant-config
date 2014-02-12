@@ -68,6 +68,7 @@ if [ ! -f /.tooninstalled ]; then
     sudo make install
     cd ../
     touch /.tooninstalled
+	chown -R vagrant:vagrant TooN
 else
     echo "TooN already installed."
 fi
@@ -83,6 +84,7 @@ if [ ! -f /.libcvdinstalled ]; then
     sudo make install
     cd ../
     touch /.libcvdinstalled
+	chown -R vagrant:vagrant libcvd
 else
     echo "LibCVD already installed."
 fi
@@ -97,6 +99,7 @@ if [ ! -f /.gvarsinstalled ]; then
     sudo make install
     cd ../
     touch /.gvarsinstalled
+	chown -R vagrant:vagrant gvars
 else
     echo "GVars already installed."
 fi
@@ -106,6 +109,7 @@ if [ ! -f /.projectrepocloned ]; then
 	echo "Cloning SEDA-AR-TextAnnotation."
 	git clone https://github.com/S-E-D-A/SEDA-AR-TextAnnotation.git
 	touch /.projectrepoinstalled
+	chown -R vagrant:vagrant SEDA-AR-TextAnnotation
 else
 	echo "SEDA-AR-TextAnnotation already cloned."
 fi
@@ -117,6 +121,7 @@ sudo chown -R vagrant:vagrant "/vagrant/sync/"
 # Link sync directory into home
 if [[ ! -L "/home/vagrant/sync" ]]; then
   ln -s "/vagrant/sync" "/home/vagrant/sync"
+  chown -R vagrant:vagrant /home/vagrant/sync
 fi
 
 # Update ldconfig

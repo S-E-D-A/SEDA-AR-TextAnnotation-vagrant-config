@@ -39,11 +39,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
+	# Set the virtual machine name
+	vb.name = "SEDA-AR-TextAnnotation"
+
 	# Don't boot with headless mode
     vb.gui = true
+
     # Use VBoxManage to customize the VM. For example to change memory:
     # vb.customize ["modifyvm", :id, "--memory", "1024"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+
   end
 
 end
