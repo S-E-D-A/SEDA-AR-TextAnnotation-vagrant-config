@@ -127,3 +127,4 @@ fi
 # Update ldconfig
 sudo ldconfig
 
+echo "Done! Vagrant up complete."
