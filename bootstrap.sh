@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# To display detailed information when executing this script
+set -ex
+
 # --UPDATE
 apt-get -y update
 
