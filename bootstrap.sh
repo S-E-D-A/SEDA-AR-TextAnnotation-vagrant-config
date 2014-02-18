@@ -127,4 +127,4 @@ fi
 # Update ldconfig
 sudo ldconfig
 
-echo "Done! Vagrant up complete."
+echo "Done! Vagrant provision complete."
