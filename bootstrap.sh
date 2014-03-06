@@ -5,6 +5,7 @@ set -ex
 
 # --UPDATE
 apt-get -y update
+apt-get -y upgrade > /dev/null
 
 # --SEDA-AR Project Repo
 if [ ! -f /.projectrepocloned ]; then
@@ -26,4 +27,6 @@ if [[ ! -L "/home/vagrant/sync" ]]; then
   chown -R vagrant:vagrant /home/vagrant/sync
 fi
 
-echo "Done! Vagrant provision complete."
+echo "###################################"
+echo "Done! Vagrant provision successful."
+echo "###################################"
