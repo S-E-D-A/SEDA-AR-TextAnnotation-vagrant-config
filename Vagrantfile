@@ -18,6 +18,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Required tools installation script
   config.vm.provision "shell", path:"./bootstrap.sh"
+  # Detect which package installs to cache
+  config.cache.auto_detect = true
+  # Limit scope to one machine
+  config.cache.scope = :machine
+  # Hard enable apt
+  config.cache.enable :apt
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
