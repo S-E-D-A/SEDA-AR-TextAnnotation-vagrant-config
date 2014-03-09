@@ -10,14 +10,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64-gui"
+  config.vm.box = "precise64-gui-vision-all"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://s3.amazonaws.com/precise64-gui/precise64-gui.box"
+  config.vm.box_url = "https://s3.amazonaws.com/seda-vagrant-boxes/precise64-gui-vision-all.box"
 
   # Required tools installation script
   config.vm.provision "shell", path:"./bootstrap.sh"
+  # Detect which package installs to cache
+  config.cache.auto_detect = true
+  # Limit scope to one machine
+  config.cache.scope = :machine
+  # Hard enable apt
+  config.cache.enable :apt
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -46,7 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = true
 
     # Use VBoxManage to customize the VM. For example to change memory:
-    # vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
 
   end
